@@ -1,13 +1,43 @@
+<!-- This project is a Account Balance Tracker designed to track all your transaction by pluggin them in. 
+ It shows how much you owe for future payments and how much you have currently in your balance. 
+ Then it also has a section for the user to put their different transactions into the system which then 
+ shows the recent 3 transaction at the bottom  -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Home</title>
+    <title> Account Balance Tracker </title>
     <script src="script.js" defer></script>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Your html goes here...</h1>
-    <br>See the <a href="README.md">README</a> for project details
+    <h1 id="Webtitle"> Balance Tracker </h1>
+    <h3 id="currentBal"> Current Balance: </h3>
+    <h3 id="totOwe"> Total You Owe: 0</h3>
+    
+    <h2>Add Transaction</h2>
+    <h3> Name of Transaction </h3>
+    <input type="text" id="transactionName"> 
+    <h3> Amount </h3>
+    <input type="text" id="transactionAmt">
+    <h3> Type </h3>
+    <select>
+        <option> Expense </option>
+        <option> Income </option>
+        <option> Future Income </option>
+        <option> Future Expense </option>
+    </select>
+    <button> Add Transaction </button>
+    
+
+    <h2> Recent Transactions </h2>
+    <p id="recent1"> - </p>
+    <p id="recent2"> - </p>
+    <p id="recent3"> - </p>
+
+    <h2> Future Transaction </h2>
+    <p id="future1"> - <button id="Apply1"> Apply This Transaction </button></p> 
+    <p id="future2"> - <button id="Apply2"> Apply This Transaction </button></p> 
+    <p id="future3"> - <button id="Apply3"> Apply This Transaction </button></p>
 </body>
 </html>
