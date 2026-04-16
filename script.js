@@ -13,21 +13,19 @@ nameList = []
 amtList = []
 typeList = []
 
-function recentTransUpd() { 
-    document.getElementById("recent1").textContent = nameList[0] + "," + amtList[0] + "," + typeList[0];
-    document.getElementById("recent2").textContent = nameList[1] + "," + amtList[1] + "," + typeList[1];
-    document.getElementById("recent3").textContent = nameList[2] + "," + amtList[2] + "," + typeList[2];
-}
+document.getElementById("addTrans").addEventListener("click", () => {
+    let transAmt = parseInt(document.getElementById("transactionAmt").value)
+    AddTrans(transAmt)    
+})
 
-document.getElementById("addTrans").addEventListener("click", function () {
-    let transactionAmt = parseInt(document.getElementById("transactionAmt").value)
+
+function AddTrans(transactionAmt) {
     if (isNaN(transactionAmt)) {
         document.getElementById("warning").textContent = "Please enter a valid Amount"
     } else {
     transName = document.getElementById("transactionName").value
     nameList.unshift(transName)
-    transAmt = document.getElementById("transactionAmt").value
-    amtList.unshift(transAmt)
+    amtList.unshift(transactionAmt)
     transType = document.getElementById("transactionType").options[document.getElementById("transactionType").selectedIndex].value
     typeList.unshift(transType)
     if (transactionAmt > startingBalance && transType === "Expense") {
@@ -42,7 +40,11 @@ document.getElementById("addTrans").addEventListener("click", function () {
         document.getElementById("currentBal").textContent = "Current Balance:" + startingBalance;
     }
     document.getElementById("warning").textContent = ""
-    recentTransUpd()
+    //recentTransUpd()
+    for (i=0; i<4; i++) {
+    document.getElementById("recent" + (i+1)).textContent = nameList[i] + "," + amtList[i] + "," + typeList[i];
     }
     }
-})
+    }
+}
+
