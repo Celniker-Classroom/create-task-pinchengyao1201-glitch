@@ -1,29 +1,48 @@
-username = prompt("Enter name here:");
-document.getElementById("Webtitle").textContent = username + "'s Balance Tracker";
-balance = parseInt(prompt("What is your current balance"));
-while (isNaN(balance)) { 
-    alert("Invalid Number")
-    balance = parseInt(prompt("What is your current balance"))
-};
 
-document.getElementById("currentBal").textContent = "Current Balance: $" + balance;
+//Profile Section 
+document.getElementById("updProfile").addEventListener("click", function () {
+    username = document.getElementById("userName").value
+    startingBalance = parseInt(document.getElementById("startBal").value)
+    document.getElementById("Webtitle").textContent = username + "'s Balance Tracker";
+    document.getElementById("currentBal").textContent = "Current Balance: $" + startingBalance;
+    document.getElementById("profile").remove();
+})
+
 
 nameList = []
 amtList = []
 typeList = []
 
 function recentTransUpd() { 
-    for (i=0; i<3; i++){
-        document.getElementById("recent" + i).textContent = nameList[i] + "," + amtList[i] + "," + transType[i];
-    }
+    document.getElementById("recent1").textContent = nameList[0] + "," + amtList[0] + "," + typeList[0];
+    document.getElementById("recent2").textContent = nameList[1] + "," + amtList[1] + "," + typeList[1];
+    document.getElementById("recent3").textContent = nameList[2] + "," + amtList[2] + "," + typeList[2];
 }
 
 document.getElementById("addTrans").addEventListener("click", function () {
+    let transactionAmt = parseInt(document.getElementById("transactionAmt").value)
+    if (isNaN(transactionAmt)) {
+        document.getElementById("warning").textContent = "Please enter a valid Amount"
+    } else {
     transName = document.getElementById("transactionName").value
-    nameList.push(transName)
+    nameList.unshift(transName)
     transAmt = document.getElementById("transactionAmt").value
-    amtList.push(transAmt)
+    amtList.unshift(transAmt)
     transType = document.getElementById("transactionType").options[document.getElementById("transactionType").selectedIndex].value
-    typeList.push(transType)
+    typeList.unshift(transType)
+    if (transactionAmt > startingBalance && transType === "Expense") {
+        document.getElementById("warning").textContent = "Amount of transaction is higher than starting Balance"
+    } else {
+    if (typeList[0] === "Income") { 
+        startingBalance += Math.abs(parseInt(amtList[0]))
+        document.getElementById("currentBal").textContent = "Current Balance:" + startingBalance;
+    }
+    else if (typeList[0] === "Expense") { 
+        startingBalance -= Math.abs(parseInt(amtList[0]))
+        document.getElementById("currentBal").textContent = "Current Balance:" + startingBalance;
+    }
+    document.getElementById("warning").textContent = ""
     recentTransUpd()
+    }
+    }
 })

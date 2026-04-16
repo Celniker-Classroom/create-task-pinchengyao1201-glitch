@@ -15,15 +15,22 @@
     <h3 id="currentBal"> Current Balance: </h3>
     <h3 id="totOwe"> Total You Owe: 0</h3>
     
+    <div id="profile"><h2>Profile</h2>
+    <h3>Username</h3>
+    <input type="text" id="userName">
+    <h3>Starting Balance Amt</h3>
+    <input type="text" id="startBal">
+    <button id="updProfile"> Update Profile </button></div>
+
     <h2>Add Transaction</h2>
     <h3> Name of Transaction </h3>
     <input type="text" id="transactionName"> 
     <h3> Amount </h3>
-    <input type="text" id="transactionAmt">
+    <input type="text" id="transactionAmt"> <p id="warning"></p>
     <h3> Type </h3>
     <select id="transactionType">
-        <option> Expense </option>
-        <option selected> Income </option>
+        <option selected> Expense </option>
+        <option> Income </option>
         <option> Future Income </option>
         <option> Future Expense </option>
     </select>
