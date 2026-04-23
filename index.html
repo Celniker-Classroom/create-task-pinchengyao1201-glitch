@@ -1,5 +1,5 @@
 <!-- This project is a Account Balance Tracker designed to track all your transaction by pluggin them in. 
- It shows how much you owe for future payments and how much you have currently in your balance. 
+ It shows how much you have currently in your balance. 
  Then it also has a section for the user to put their different transactions into the system which then 
  shows the recent 3 transaction at the bottom  -->
 <!DOCTYPE html>
@@ -11,35 +11,65 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1 id="Webtitle"> Balance Tracker </h1>
-    <h3 id="currentBal"> Current Balance: </h3>
-    <!--<h3 id="totOwe"> Total You Owe: 0</h3>-->
-    
-    <div id="profile"><h2>Profile</h2>
-    <h3>Username</h3>
-    <input type="text" id="userName">
-    <h3>Starting Balance Amt</h3>
-    <input type="text" id="startBal">
-    <button id="updProfile"> Update Profile </button></div>
+    <main class="app-shell">
+        <h1 id="Webtitle">Balance Tracker</h1>
+        <h3 id="currentBal">Current Balance:</h3>
+        <h3 id="totOwe">Total You Owe: 0</h3>
+        
+        <div id="profile" class="panel">
+            <h2>Profile</h2>
+            <label for="userName">Username</label>
+            <input type="text" id="userName">
+            <label for="startBal">Starting Balance Amt</label>
+            <input type="text" id="startBal">
+            <button id="updProfile">Update Profile</button>
+        </div>
 
-    <h2>Add Transaction</h2>
-    <h3> Name of Transaction </h3>
-    <input type="text" id="transactionName"> 
-    <h3> Amount </h3>
-    <input type="text" id="transactionAmt"> <p id="warning"></p>
-    <h3> Type </h3>
-    <select id="transactionType">
-        <option selected> Expense </option>
-        <option> Income </option>
-    </select>
-    <button id="addTrans"> Add Transaction </button>
-    
-
-    <h2> Recent Transactions </h2>
-    <p id="recent1"> - </p>
-    <p id="recent2"> - </p>
-    <p id="recent3"> - </p>
-
+        <div id="action" class="panel hidden">
+            <h2>Add Transaction</h2>
+            <label for="transactionName">Name of Transaction</label>
+            <input type="text" id="transactionName"> 
+            <label for="transactionAmt">Amount</label>
+            <input type="text" id="transactionAmt">
+            <p id="warning"></p>
+            <label for="transactionType">Type</label>
+            <select id="transactionType">
+                <option selected>Expense</option>
+                <option>Income</option>
+            </select>
+            <button id="addTrans">Add Transaction</button>
+            
+            <h2>Recent Transactions</h2>
+            <div class="table-wrap">
+                <table class="recent-table">
+                    <thead>
+                        <tr>
+                            <th>Transaction</th>
+                            <th>Amount</th>
+                            <th>Type</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td id="recent1Name">-</td>
+                            <td id="recent1Amt">-</td>
+                            <td id="recent1Type">-</td>
+                        </tr>
+                        <tr>
+                            <td id="recent2Name">-</td>
+                            <td id="recent2Amt">-</td>
+                            <td id="recent2Type">-</td>
+                        </tr>
+                        <tr>
+                            <td id="recent3Name">-</td>
+                            <td id="recent3Amt">-</td>
+                            <td id="recent3Type">-</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
    
 </body>
 </html>

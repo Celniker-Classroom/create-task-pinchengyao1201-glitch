@@ -1,11 +1,10 @@
-
-//Profile Section 
 document.getElementById("updProfile").addEventListener("click", function () {
     username = document.getElementById("userName").value
     startingBalance = parseInt(document.getElementById("startBal").value)
     document.getElementById("Webtitle").textContent = username + "'s Balance Tracker";
     document.getElementById("currentBal").textContent = "Current Balance: $" + startingBalance;
     document.getElementById("profile").remove();
+    document.getElementById("action").classList.remove('hidden');
 })
 
 
@@ -33,16 +32,17 @@ function AddTrans(transactionAmt) {
     } else {
     if (typeList[0] === "Income") { 
         startingBalance += Math.abs(parseInt(amtList[0]))
-        document.getElementById("currentBal").textContent = "Current Balance:" + startingBalance;
+        document.getElementById("currentBal").textContent = "Current Balance: $" + startingBalance;
     }
     else if (typeList[0] === "Expense") { 
         startingBalance -= Math.abs(parseInt(amtList[0]))
-        document.getElementById("currentBal").textContent = "Current Balance:" + startingBalance;
+        document.getElementById("currentBal").textContent = "Current Balance: $" + startingBalance;
     }
     document.getElementById("warning").textContent = ""
-    //recentTransUpd()
-    for (i=0; i<4; i++) {
-    document.getElementById("recent" + (i+1)).textContent = nameList[i] + "," + amtList[i] + "," + typeList[i];
+    for (let i = 0; i < 3; i++) {
+        document.getElementById("recent" + (i + 1) + "Name").textContent = nameList[i] || "-";
+        document.getElementById("recent" + (i + 1) + "Amt").textContent = amtList[i] !== undefined ? "$" + amtList[i] : "-";
+        document.getElementById("recent" + (i + 1) + "Type").textContent = typeList[i] || "-";
     }
     }
     }

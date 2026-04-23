@@ -1,1 +1,126 @@
-/* Add Global styles here */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 32px 16px;
+    font-family: Arial, Helvetica, sans-serif;
+    background: linear-gradient(135deg, #3852B4 0%, #5E7AC4 45%, #F3BE7A 100%);
+    color: #1f2a44;
+}
+
+.app-shell {
+    width: min(920px, 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+    text-align: center;
+}
+
+#Webtitle {
+    margin: 0;
+    color: #ffffff;
+    font-size: clamp(2rem, 4vw, 3.25rem);
+}
+
+#currentBal,
+#totOwe {
+    margin: 0;
+    color: #ffffff;
+}
+
+.panel {
+    width: min(720px, 100%);
+    padding: 24px;
+    border-radius: 24px;
+    background: rgba(255, 255, 255, 0.92);
+    box-shadow: 0 18px 40px rgba(31, 42, 68, 0.2);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.panel h2 {
+    margin: 0 0 6px;
+    color: #3852B4;
+}
+
+.panel label {
+    font-weight: 700;
+    color: #1f2a44;
+}
+
+.panel input,
+.panel select,
+.panel button {
+    width: 100%;
+    border-radius: 14px;
+    border: 2px solid #5E7AC4;
+    padding: 12px 14px;
+    font-size: 1rem;
+}
+
+.panel input,
+.panel select {
+    background: #ffffff;
+    color: #1f2a44;
+}
+
+.panel button {
+    border: none;
+    background: #F08D39;
+    color: #ffffff;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.18s ease, background-color 0.18s ease;
+}
+
+.panel button:hover {
+    background: #e77c25;
+    transform: translateY(-1px);
+}
+
+#warning {
+    min-height: 1.2em;
+    margin: 0;
+    color: #b42318;
+    font-weight: 700;
+}
+
+.table-wrap {
+    overflow-x: auto;
+}
+
+.recent-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #ffffff;
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+.recent-table th,
+.recent-table td {
+    padding: 12px 14px;
+    border-bottom: 1px solid #d9e1f3;
+    text-align: center;
+}
+
+.recent-table th {
+    background: #3852B4;
+    color: #ffffff;
+}
+
+.recent-table tbody tr:nth-child(even) {
+    background: #f6f8ff;
+}
+
+.hidden {
+    display: none;
+}
