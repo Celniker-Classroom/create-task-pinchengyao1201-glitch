@@ -3,6 +3,7 @@ document.getElementById("updProfile").addEventListener("click", function () {
     startingBalance = parseInt(document.getElementById("startBal").value)
     document.getElementById("Webtitle").textContent = username + "'s Balance Tracker";
     document.getElementById("currentBal").textContent = "Current Balance: $" + startingBalance;
+    document.getElementById("totOwe").textContent = "Total You Owe: $0";
     document.getElementById("profile").remove();
     document.getElementById("action").classList.remove('hidden');
 })
@@ -11,6 +12,7 @@ document.getElementById("updProfile").addEventListener("click", function () {
 nameList = []
 amtList = []
 typeList = []
+let totalOwe = 0
 
 document.getElementById("addTrans").addEventListener("click", () => {
     let transAmt = parseInt(document.getElementById("transactionAmt").value)
@@ -36,7 +38,9 @@ function AddTrans(transactionAmt) {
     }
     else if (typeList[0] === "Expense") { 
         startingBalance -= Math.abs(parseInt(amtList[0]))
+        totalOwe += Math.abs(parseInt(amtList[0]))
         document.getElementById("currentBal").textContent = "Current Balance: $" + startingBalance;
+        document.getElementById("totOwe").textContent = "Total You Owe: $" + totalOwe;
     }
     document.getElementById("warning").textContent = ""
     for (let i = 0; i < 3; i++) {
